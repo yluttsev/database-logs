@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_kafka_log_table
+      author: yluttsev
+      changes:
+        - createTable:
+            tableName: kafka_log
+            ifNotExists: true
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: service_name
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: message
+                  type: text
+                  constraints:
+                    nullable: false
